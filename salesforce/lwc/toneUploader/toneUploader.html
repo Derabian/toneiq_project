@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Tone‑IQ Uploader">
+        <lightning-input type="file" label="Audio" accept=".wav,.mp3" onchange={handleFile}></lightning-input>
+        <lightning-textarea label="Optional message" onchange={handleMsg}></lightning-textarea>
+        <lightning-button label="Analyze" variant="brand" onclick={submit}></lightning-button>
+
+        <template if:true={caseUrl}>
+            <p class="slds-m-top_medium">Case created: <a href={caseUrl} target="_blank">{caseUrl}</a></p>
+        </template>
+
+        <template if:true={macroName}>
+            <p class="slds-m-top_medium"><strong>Suggested Macro:</strong> {macroName}</p>
+            <lightning-button label="Insert Macro" onclick={insertMacro}></lightning-button>
+        </template>
+    </lightning-card>
+</template>
